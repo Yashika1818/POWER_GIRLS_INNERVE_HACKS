@@ -1,4 +1,5 @@
 
+from sys import flags
 from tkinter import Y
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
@@ -226,7 +227,8 @@ def checkData(data):
         else:
             print('\n'+str(len(names)+1)+'\n'+'present...')
             enterData(data)
-def enterData(z):   
+def enterData(z): 
+        global flag  
         if z in names:
             pass
         else:
@@ -242,6 +244,7 @@ def enterData(z):
             fob=open(d+'.xls','a+')
             fob.write(z+'\t'+intime+'\n')
             fob.close()
+            flag=1
             #print(y+"is")
         return names 
 
@@ -274,22 +277,22 @@ class Video(object):
 
 
 def gen(Video):
+    global flag
     global count
     print("genvideo ke andar")
     while True:
         
         frame=Video.get_frame()
-        yield(b'--frame\r\n'
-       b'Content-Type:  image/jpeg\r\n\r\n' + frame +
-         b'\r\n\r\n')
-    
-
-
-
+        if flag==0:
+            yield(b'--frame\r\n'
+        b'Content-Type:  image/jpeg\r\n\r\n' + frame +
+            b'\r\n\r\n')
 
 @app.route('/video')
 
 def video():
+    global flag
+    flag=0
     fob=open(d+'.xls','a+')
     fob.write("Reg No."+'\t')
     fob.write("In Time"+'\n')

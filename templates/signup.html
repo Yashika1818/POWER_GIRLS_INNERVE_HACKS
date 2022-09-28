@@ -2,7 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}
-Login
+Signup
 {% endblock %}
 
 {% block styles %}
@@ -55,13 +55,13 @@ Login
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="login.html" class="nav-item nav-link">Login</a>
+            <a href= "{{ url_for('index') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ url_for('login') }}" class="nav-item nav-link">Login</a>
             <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
               <div class="dropdown-menu m-0">
-                <a href="#" class="dropdown-item">Admin Login</a>
-                <a href="#" class="dropdown-item">Admin SignUp</a>
+                <a href="{{ url_for('index') }}" class="dropdown-item">Admin Login</a>
+                <a href="{{ url_for('index') }}" class="dropdown-item">Admin SignUp</a>
               </div>
             </div>
             
