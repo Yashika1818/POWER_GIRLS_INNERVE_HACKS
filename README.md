@@ -14,5 +14,5 @@ To build a website to track attendance of students working in the NGO.
 ##
 
 ## Our Team
-Ashina Gaur, Tejaswini Gurram, Yashika Goel)
+Ashina Gaur, Tejaswini Gurram, Yashika Goel
  
